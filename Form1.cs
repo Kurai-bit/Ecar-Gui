@@ -85,13 +85,13 @@ namespace EcarGUI
         private void gMapControl1_MouseWheel(object sender, MouseEventArgs e)
         {
             mapZoom = (int)gMapControl1.Zoom;
-                
+
         }
 
 
         private double startingPointY = 45.41667;
         private double startingPointX = 23.36667;
-        
+
         private double wayPointY = 0;
         private double wayPointX = 0;
 
@@ -101,7 +101,7 @@ namespace EcarGUI
             if (e.Button == MouseButtons.Right) // Check if left mouse button is clicked
             {
                 // Convert screen coordinates to geographic coordinates
-                PointLatLng clickedPoint = gMapControl1.FromLocalToLatLng(e.X, e.Y); 
+                PointLatLng clickedPoint = gMapControl1.FromLocalToLatLng(e.X, e.Y);
 
                 wayPointY = (double)clickedPoint.Lat;
                 wayPointX = (double)clickedPoint.Lng;
@@ -130,6 +130,11 @@ namespace EcarGUI
             gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            gMapControl1.MapProvider = GoogleMapProvider.Instance;
+        }
+
         /// <summary>
         ///  routing
         /// </summary>
@@ -143,7 +148,6 @@ namespace EcarGUI
             string eLat = endLat.ToString().Replace(",", ".");
             string eLng = endLng.ToString().Replace(",", ".");
 
-            //System.Diagnostics.Debug.WriteLine(sLat.Replace(",","."));
 
             string apiUrl = $"https://api.geoapify.com/v1/routing?waypoints={sLat},{sLng}|{eLat},{eLng}&mode=drive&apiKey=fff67f9fe9684413af2a5787647fcb68";
 
@@ -236,7 +240,7 @@ namespace EcarGUI
 
                         string humidity = weatherData["main"]["humidity"].ToString();
                         string windSpeed = weatherData["wind"]["speed"].ToString();
-                        //string visibility = weatherData["visibility"].ToString();
+                        string visibility = weatherData["visibility"].ToString();
 
                         double windDirectionDegrees = Convert.ToDouble(weatherData["wind"]["deg"]);
                         string windDirection = WindDirectionToCompass(windDirectionDegrees);
@@ -246,7 +250,7 @@ namespace EcarGUI
                             skyInfo = weatherData["weather"][0]["icon"].ToString();
                         }
 
-                        string formattedWeatherData = $"T: {temperatureCelsius:F1}°C, H: {humidity}%, W: {windDirection} {windSpeed} m/s";
+                        string formattedWeatherData = $"T: {temperatureCelsius:F1}°C, H: {humidity}%, W: {windDirection} {windSpeed} m/s, V: {visibility}";
 
                         return (formattedWeatherData, skyInfo);
                     }
@@ -473,7 +477,16 @@ namespace EcarGUI
             }
             if (Core.IsDown)
             {
+                if(battery < 240 && speed > 0)
+                {
+                    battery += 0.005f;
+                    pictureBox3.Visible = true;
+                }
                 speed -= 2;
+            }
+            else
+            {
+                pictureBox3.Visible = false;
             }
             speed = Math.Max(0.0f, speed);
 

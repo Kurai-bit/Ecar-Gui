@@ -223,6 +223,16 @@ namespace EcarGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2780667_200 {
+            get {
+                object obj = ResourceManager.GetObject("2780667-200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _50d {
             get {
                 object obj = ResourceManager.GetObject("50d", resourceCulture);
@@ -264,9 +274,39 @@ namespace EcarGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap istockphoto_1317488792_612x612 {
+            get {
+                object obj = ResourceManager.GetObject("istockphoto_1317488792_612x612", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap large_satellite_map_of_the_world {
+            get {
+                object obj = ResourceManager.GetObject("large_satellite_map_of_the_world", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOW_BEAM_1 {
             get {
                 object obj = ResourceManager.GetObject("LOW_BEAM_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MC_EUR_ES5262 {
+            get {
+                object obj = ResourceManager.GetObject("MC_EUR_ES5262", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

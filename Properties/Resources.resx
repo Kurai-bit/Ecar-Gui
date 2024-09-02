@@ -118,32 +118,50 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="01d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\169367.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="01n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="02d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1850730.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="11d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\47240911111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="02n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\free-blue-clouds-and-blue-moon-icon-16538-thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="03d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\252035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="istockphoto_1317488792_612x612" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\istockphoto-1317488792-612x612.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="03n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2520351.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="autocad_drawing_tesla_model_3_tesla_inc_cars_top_vehicles_dwg_dxf_435_transformed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\autocad-drawing-tesla-model-3-tesla-inc-cars-top-vehicles-dwg-dxf-435-transformed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="04d" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cloudly.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="04n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cloudly1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="13n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\83332741.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="01n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MC_EUR_ES5262" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MC-EUR-ES5262.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="11n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\472409111111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="09d" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4724091111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="13d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8333274.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="04n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cloudly1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="50d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cloud.dark.snow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="01d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\169367.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HIGH_BEAM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HIGH-BEAM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="09n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\472409111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,34 +172,28 @@
   <data name="10n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\47240911.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="11d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\47240911111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="11n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\472409111111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="13d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8333274.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="13n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\83332741.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="50d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cloud.dark.snow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="50n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cloud.dark.snow1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="autocad_drawing_tesla_model_3_tesla_inc_cars_top_vehicles_dwg_dxf_435_transformed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\autocad-drawing-tesla-model-3-tesla-inc-cars-top-vehicles-dwg-dxf-435-transformed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HIGH_BEAM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HIGH-BEAM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="02d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1850730.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LOW_BEAM_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOW-BEAM-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Screenshot_2024_03_22_003258" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot 2024-03-22 003258.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="03n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2520351.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="03d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\252035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="large_satellite_map_of_the_world" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\large-satellite-map-of-the-world.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2780667-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2780667-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

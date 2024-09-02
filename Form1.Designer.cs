@@ -36,6 +36,7 @@
             panel20 = new Panel();
             gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             panel19 = new Panel();
+            button2 = new Button();
             button1 = new Button();
             terrainMap = new Button();
             hybridMap = new Button();
@@ -184,6 +185,7 @@
             // 
             // panel19
             // 
+            panel19.Controls.Add(button2);
             panel19.Controls.Add(button1);
             panel19.Controls.Add(terrainMap);
             panel19.Controls.Add(hybridMap);
@@ -193,43 +195,66 @@
             panel19.Size = new Size(617, 98);
             panel19.TabIndex = 1;
             // 
+            // button2
+            // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Location = new Point(517, 7);
+            button2.Name = "button2";
+            button2.Size = new Size(44, 41);
+            button2.TabIndex = 3;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // button1
             // 
-            button1.Location = new Point(182, 54);
+            button1.BackColor = Color.FromArgb(37, 43, 75);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.FromArgb(224, 224, 224);
+            button1.Location = new Point(219, 60);
             button1.Name = "button1";
             button1.Size = new Size(191, 29);
             button1.TabIndex = 2;
             button1.Text = "Generate Route";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // terrainMap
             // 
+            terrainMap.BackgroundImage = (Image)resources.GetObject("terrainMap.BackgroundImage");
+            terrainMap.BackgroundImageLayout = ImageLayout.Zoom;
+            terrainMap.FlatStyle = FlatStyle.Flat;
             terrainMap.Location = new Point(567, 54);
             terrainMap.Name = "terrainMap";
             terrainMap.Size = new Size(44, 41);
             terrainMap.TabIndex = 1;
-            terrainMap.Text = "button1";
             terrainMap.UseVisualStyleBackColor = true;
             terrainMap.Click += terrainMap_Click;
             // 
             // hybridMap
             // 
+            hybridMap.BackgroundImage = (Image)resources.GetObject("hybridMap.BackgroundImage");
+            hybridMap.BackgroundImageLayout = ImageLayout.Zoom;
+            hybridMap.FlatStyle = FlatStyle.Flat;
             hybridMap.Location = new Point(567, 7);
             hybridMap.Name = "hybridMap";
             hybridMap.Size = new Size(44, 41);
             hybridMap.TabIndex = 1;
-            hybridMap.Text = "button1";
             hybridMap.UseVisualStyleBackColor = true;
             hybridMap.Click += hybridMap_Click;
             // 
             // satelliteMap
             // 
+            satelliteMap.BackgroundImage = (Image)resources.GetObject("satelliteMap.BackgroundImage");
+            satelliteMap.BackgroundImageLayout = ImageLayout.Zoom;
+            satelliteMap.FlatStyle = FlatStyle.Flat;
             satelliteMap.Location = new Point(517, 54);
             satelliteMap.Name = "satelliteMap";
             satelliteMap.Size = new Size(44, 41);
             satelliteMap.TabIndex = 1;
-            satelliteMap.Text = "button1";
             satelliteMap.UseVisualStyleBackColor = true;
             satelliteMap.Click += satelliteMap_Click;
             // 
@@ -422,7 +447,8 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Location = new Point(83, 59);
+            pictureBox3.Image = Properties.Resources._2780667_200;
+            pictureBox3.Location = new Point(79, 56);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(37, 36);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -853,5 +879,6 @@
         private Button hybridMap;
         private Button satelliteMap;
         private Button button1;
+        private Button button2;
     }
 }
