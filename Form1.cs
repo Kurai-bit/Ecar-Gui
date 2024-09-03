@@ -313,8 +313,8 @@ namespace EcarGUI
             chartArea.AxisX.TitleForeColor = Color.White;
             chartArea.AxisY.TitleForeColor = Color.White;
             chartArea.AxisX.Minimum = 0; // Starting hour
-            chartArea.AxisX.Maximum = 23; // Ending hour
-            chartArea.AxisX.Interval = 1;
+            //chartArea.AxisX.Maximum = 23; // Ending hour
+            //chartArea.AxisX.Interval = 1;
 
             // Set the color of the series line
             series.Color = Color.FromArgb(57, 112, 255);
@@ -331,33 +331,44 @@ namespace EcarGUI
             chartArea.Position.Height = 100;
 
             // Configure axes
-            chartArea.AxisX.Title = "Hour";
+            //chartArea.AxisX.Title = "Hour";
             chartArea.AxisY.Title = "Current spent";
 
             // Initialize the timer
+            int minute = 0; // temporar 
             System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
             timer2.Interval = 1000; // 2 seconds
             timer2.Tick += (s, args) =>
             {
-                //int current = random.Next(0, 100); // Random speed for demonstration
                 int current = (int)currentSpent;
 
-                if (chart.Series["Current"].Points.Count > DateTime.Now.Hour)
-                {
-                    chart.Series["Current"].Points[DateTime.Now.Hour].SetValueY(current);
+                if (chart.Series["Current"].Points.Count > minute) 
+                {  
+                    chart.Series["Current"].Points[minute].SetValueY(current);
                 }
                 else
                 {
-                    chart.Series["Current"].Points.AddXY(DateTime.Now.Hour, current);
+                    chart.Series["Current"].Points.AddXY(minute, current);
                 }
 
-                // Update the chart to move to the next hour
-                currentHour++;
-                if (currentHour > 23) // Reset after 24 hours
-                {
-                    currentHour = 0;
-                    chart.Series["Current"].Points.Clear();
-                }
+                minute++;
+
+                    //if (chart.Series["Current"].Points.Count > DateTime.Now.Hour)
+                    //{
+                    //    chart.Series["Current"].Points[DateTime.Now.Hour].SetValueY(current);
+                    //}
+                    //else
+                    //{
+                    //    chart.Series["Current"].Points.AddXY(DateTime.Now.Hour, current);
+                    //}
+
+                    //// Update the chart to move to the next hour
+                    //currentHour++;
+                    //if (currentHour > 23) // Reset after 24 hours
+                    //{
+                    //    currentHour = 0;
+                    //    chart.Series["Current"].Points.Clear();
+                    //}
             };
             timer2.Start();
         }
@@ -422,15 +433,21 @@ namespace EcarGUI
 
         private void Sim(object sender, EventArgs e)
         {
+            // TODO formule normale !!!!
 
             if (speed == 0)
             {
                 airFriction = 0.0005f;
                 deceleration = 0.15f;
             }
-            float force = weight * 9.82f * engineTorque * airFriction;
-            acceleration = force / weight;
-            driven += (int)(120 / 3600) * (int)speed; // sim on 2 mins
+
+            acceleration = 9.82f * engineTorque * airFriction;
+            float force = weight * acceleration;
+
+            //float force = weight * 9.82f * engineTorque * airFriction;
+            //acceleration = force / weight;
+
+            //driven += 120 / 3600 * speed; // inmultirea cu 0 da 0 daun!!
 
             drivenKm.Text = driven.ToString() + "Km";
 
