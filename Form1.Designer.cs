@@ -61,6 +61,7 @@
             pictureBox3 = new PictureBox();
             panel18 = new Panel();
             batteryPanel = new Panel();
+            chargingPictureBoxx = new PictureBox();
             batteryLabel = new Label();
             label3 = new Label();
             hoursRemaining = new Label();
@@ -103,6 +104,8 @@
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel18.SuspendLayout();
+            batteryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chargingPictureBoxx).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel6.SuspendLayout();
@@ -297,7 +300,7 @@
             label8.ForeColor = Color.LightGray;
             label8.Location = new Point(12, 7);
             label8.Name = "label8";
-            label8.Size = new Size(78, 15);
+            label8.Size = new Size(93, 17);
             label8.TabIndex = 0;
             label8.Text = "Tyre pressure";
             // 
@@ -308,7 +311,7 @@
             label10.ForeColor = Color.LightGray;
             label10.Location = new Point(48, 32);
             label10.Name = "label10";
-            label10.Size = new Size(30, 17);
+            label10.Size = new Size(39, 21);
             label10.TabIndex = 0;
             label10.Text = "bar";
             // 
@@ -319,7 +322,7 @@
             label9.ForeColor = Color.LightGray;
             label9.Location = new Point(12, 29);
             label9.Name = "label9";
-            label9.Size = new Size(31, 19);
+            label9.Size = new Size(38, 23);
             label9.TabIndex = 0;
             label9.Text = "2.0";
             // 
@@ -340,7 +343,7 @@
             label5.ForeColor = Color.LightGray;
             label5.Location = new Point(12, 7);
             label5.Name = "label5";
-            label5.Size = new Size(42, 15);
+            label5.Size = new Size(50, 17);
             label5.TabIndex = 0;
             label5.Text = "Driven";
             // 
@@ -351,7 +354,7 @@
             drivenKm.ForeColor = Color.LightGray;
             drivenKm.Location = new Point(12, 29);
             drivenKm.Name = "drivenKm";
-            drivenKm.Size = new Size(54, 19);
+            drivenKm.Size = new Size(65, 23);
             drivenKm.TabIndex = 0;
             drivenKm.Text = "30000";
             // 
@@ -372,7 +375,7 @@
             label7.ForeColor = Color.LightGray;
             label7.Location = new Point(12, 6);
             label7.Name = "label7";
-            label7.Size = new Size(55, 15);
+            label7.Size = new Size(70, 17);
             label7.TabIndex = 0;
             label7.Text = "Capacity";
             // 
@@ -383,7 +386,7 @@
             batteryCapacity.ForeColor = Color.LightGray;
             batteryCapacity.Location = new Point(12, 28);
             batteryCapacity.Name = "batteryCapacity";
-            batteryCapacity.Size = new Size(36, 19);
+            batteryCapacity.Size = new Size(43, 23);
             batteryCapacity.TabIndex = 0;
             batteryCapacity.Text = "150";
             // 
@@ -405,7 +408,7 @@
             label6.ForeColor = Color.LightGray;
             label6.Location = new Point(3, 3);
             label6.Name = "label6";
-            label6.Size = new Size(75, 15);
+            label6.Size = new Size(96, 17);
             label6.TabIndex = 0;
             label6.Text = "Temp.battery";
             // 
@@ -416,7 +419,7 @@
             label14.ForeColor = Color.LightGray;
             label14.Location = new Point(53, 30);
             label14.Name = "label14";
-            label14.Size = new Size(19, 17);
+            label14.Size = new Size(24, 21);
             label14.TabIndex = 0;
             label14.Text = "C";
             // 
@@ -427,7 +430,7 @@
             label13.ForeColor = Color.LightGray;
             label13.Location = new Point(12, 28);
             label13.Name = "label13";
-            label13.Size = new Size(33, 19);
+            label13.Size = new Size(40, 23);
             label13.TabIndex = 0;
             label13.Text = "22°";
             // 
@@ -448,7 +451,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources._2780667_200;
-            pictureBox3.Location = new Point(79, 56);
+            pictureBox3.Location = new Point(103, 59);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(37, 36);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -467,10 +470,24 @@
             // batteryPanel
             // 
             batteryPanel.BackColor = Color.FromArgb(0, 192, 0);
+            batteryPanel.Controls.Add(chargingPictureBoxx);
             batteryPanel.Location = new Point(3, 3);
             batteryPanel.Name = "batteryPanel";
             batteryPanel.Size = new Size(158, 47);
             batteryPanel.TabIndex = 3;
+            // 
+            // chargingPictureBoxx
+            // 
+            chargingPictureBoxx.BackgroundImage = Properties.Resources.charging;
+            chargingPictureBoxx.BackgroundImageLayout = ImageLayout.None;
+            chargingPictureBoxx.Image = Properties.Resources.charging;
+            chargingPictureBoxx.InitialImage = Properties.Resources.charging;
+            chargingPictureBoxx.Location = new Point(97, 0);
+            chargingPictureBoxx.Name = "chargingPictureBoxx";
+            chargingPictureBoxx.Size = new Size(50, 47);
+            chargingPictureBoxx.SizeMode = PictureBoxSizeMode.Zoom;
+            chargingPictureBoxx.TabIndex = 0;
+            chargingPictureBoxx.TabStop = false;
             // 
             // batteryLabel
             // 
@@ -479,7 +496,7 @@
             batteryLabel.ForeColor = Color.LightGray;
             batteryLabel.Location = new Point(6, 59);
             batteryLabel.Name = "batteryLabel";
-            batteryLabel.Size = new Size(59, 28);
+            batteryLabel.Size = new Size(77, 37);
             batteryLabel.TabIndex = 2;
             batteryLabel.Text = "67%";
             // 
@@ -490,7 +507,7 @@
             label3.ForeColor = Color.LightGray;
             label3.Location = new Point(126, 75);
             label3.Name = "label3";
-            label3.Size = new Size(22, 32);
+            label3.Size = new Size(27, 40);
             label3.TabIndex = 0;
             label3.Text = ".";
             // 
@@ -500,7 +517,7 @@
             hoursRemaining.ForeColor = Color.LightGray;
             hoursRemaining.Location = new Point(159, 90);
             hoursRemaining.Name = "hoursRemaining";
-            hoursRemaining.Size = new Size(44, 16);
+            hoursRemaining.Size = new Size(59, 19);
             hoursRemaining.TabIndex = 0;
             hoursRemaining.Text = "5.40 h";
             // 
@@ -510,7 +527,7 @@
             label2.ForeColor = Color.LightGray;
             label2.Location = new Point(5, 90);
             label2.Name = "label2";
-            label2.Size = new Size(124, 16);
+            label2.Size = new Size(151, 19);
             label2.TabIndex = 0;
             label2.Text = "Battery remaining";
             // 
@@ -563,7 +580,7 @@
             LabelD.ForeColor = Color.LightGray;
             LabelD.Location = new Point(26, 12);
             LabelD.Name = "LabelD";
-            LabelD.Size = new Size(16, 16);
+            LabelD.Size = new Size(21, 19);
             LabelD.TabIndex = 2;
             LabelD.Text = "D";
             // 
@@ -581,7 +598,7 @@
             sportLabel.ForeColor = Color.LightGray;
             sportLabel.Location = new Point(25, 12);
             sportLabel.Name = "sportLabel";
-            sportLabel.Size = new Size(14, 16);
+            sportLabel.Size = new Size(18, 19);
             sportLabel.TabIndex = 2;
             sportLabel.Text = "S";
             // 
@@ -600,7 +617,7 @@
             neutralLabel.ForeColor = Color.LightGray;
             neutralLabel.Location = new Point(26, 12);
             neutralLabel.Name = "neutralLabel";
-            neutralLabel.Size = new Size(17, 16);
+            neutralLabel.Size = new Size(22, 19);
             neutralLabel.TabIndex = 2;
             neutralLabel.Text = "N";
             // 
@@ -618,7 +635,7 @@
             parkingLabel.ForeColor = Color.LightGray;
             parkingLabel.Location = new Point(25, 12);
             parkingLabel.Name = "parkingLabel";
-            parkingLabel.Size = new Size(15, 16);
+            parkingLabel.Size = new Size(19, 19);
             parkingLabel.TabIndex = 2;
             parkingLabel.Text = "R";
             // 
@@ -636,7 +653,7 @@
             rearLabel.ForeColor = Color.LightGray;
             rearLabel.Location = new Point(24, 12);
             rearLabel.Name = "rearLabel";
-            rearLabel.Size = new Size(14, 16);
+            rearLabel.Size = new Size(19, 19);
             rearLabel.TabIndex = 2;
             rearLabel.Text = "P";
             // 
@@ -657,7 +674,7 @@
             speedLabel.ForeColor = Color.LightGray;
             speedLabel.Location = new Point(188, 6);
             speedLabel.Name = "speedLabel";
-            speedLabel.Size = new Size(58, 41);
+            speedLabel.Size = new Size(72, 51);
             speedLabel.TabIndex = 2;
             speedLabel.Text = "85";
             // 
@@ -667,7 +684,7 @@
             measurementSystemLabel.ForeColor = Color.LightGray;
             measurementSystemLabel.Location = new Point(196, 58);
             measurementSystemLabel.Name = "measurementSystemLabel";
-            measurementSystemLabel.Size = new Size(41, 16);
+            measurementSystemLabel.Size = new Size(54, 19);
             measurementSystemLabel.TabIndex = 2;
             measurementSystemLabel.Text = "Km/h";
             // 
@@ -717,7 +734,7 @@
             networkType.ForeColor = Color.LightGray;
             networkType.Location = new Point(43, 7);
             networkType.Name = "networkType";
-            networkType.Size = new Size(25, 16);
+            networkType.Size = new Size(33, 19);
             networkType.TabIndex = 2;
             networkType.Text = "5G";
             // 
@@ -727,7 +744,7 @@
             temperature.ForeColor = Color.LightGray;
             temperature.Location = new Point(616, 7);
             temperature.Name = "temperature";
-            temperature.Size = new Size(26, 16);
+            temperature.Size = new Size(36, 19);
             temperature.TabIndex = 2;
             temperature.Text = "20°";
             // 
@@ -737,7 +754,7 @@
             TY.ForeColor = Color.LightGray;
             TY.Location = new Point(1035, 7);
             TY.Name = "TY";
-            TY.Size = new Size(71, 16);
+            TY.Size = new Size(99, 19);
             TY.TabIndex = 1;
             TY.Text = "01:01:2024";
             // 
@@ -747,7 +764,7 @@
             TH.ForeColor = Color.LightGray;
             TH.Location = new Point(975, 7);
             TH.Name = "TH";
-            TH.Size = new Size(39, 16);
+            TH.Size = new Size(54, 19);
             TH.TabIndex = 0;
             TH.Text = "12:50";
             // 
@@ -765,7 +782,7 @@
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(7, 7, 7);
             ClientSize = new Size(1129, 729);
@@ -795,6 +812,8 @@
             panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel18.ResumeLayout(false);
+            batteryPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chargingPictureBoxx).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -880,5 +899,6 @@
         private Button satelliteMap;
         private Button button1;
         private Button button2;
+        private PictureBox chargingPictureBoxx;
     }
 }

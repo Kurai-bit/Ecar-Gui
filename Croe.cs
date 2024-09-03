@@ -13,11 +13,13 @@ namespace EcarGUI
         public static readonly Keys KeyDown = Keys.S;
         public static readonly Keys KeyRight = Keys.D;
         public static readonly Keys KeyLeft = Keys.A;
+        public static readonly Keys KeyCharging = Keys.C;
 
         public static bool IsUp = false;
         public static bool IsDown = false;
         public static bool IsRight = false;
         public static bool IsLeft = false;
+        public static bool IsCharging = false;
 
 
     }

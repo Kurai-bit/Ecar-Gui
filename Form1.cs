@@ -34,6 +34,7 @@ namespace EcarGUI
         float speed = 0.0f; // Initial spee
         int gear = 2;
 
+        bool charging = false;
         float battery = 180; //240max
         float currentSpent = 0;
         int KWh = 0;
@@ -312,9 +313,9 @@ namespace EcarGUI
             chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(7, 7, 7);
             chartArea.AxisX.TitleForeColor = Color.White;
             chartArea.AxisY.TitleForeColor = Color.White;
-            chartArea.AxisX.Minimum = 0; // Starting hour
-            //chartArea.AxisX.Maximum = 23; // Ending hour
-            //chartArea.AxisX.Interval = 1;
+            //chartArea.AxisX.Minimum = 0; // Starting hour
+            //chartArea.AxisX.Maximum = 20; // Ending hour
+            chartArea.AxisX.Interval = 1;
 
             // Set the color of the series line
             series.Color = Color.FromArgb(57, 112, 255);
@@ -337,39 +338,32 @@ namespace EcarGUI
             // Initialize the timer
             int minute = 0; // temporar 
             System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
-            timer2.Interval = 1000; // 2 seconds
+            timer2.Interval = 10000; // 1 seconds
             timer2.Tick += (s, args) =>
             {
-                int current = (int)currentSpent;
+                UpdateChart();
+                minute++;
+            };
+            float current = 0;
+            // Define a method to update the chart
+            void UpdateChart()
+            {
+                current = currentSpent;
 
-                if (chart.Series["Current"].Points.Count > minute) 
-                {  
+                if (chart.Series["Current"].Points.Count > minute)
+                {
                     chart.Series["Current"].Points[minute].SetValueY(current);
                 }
                 else
                 {
                     chart.Series["Current"].Points.AddXY(minute, current);
                 }
+            }
 
-                minute++;
+            // Initial chart update call to display the graph immediately
+            UpdateChart();
 
-                    //if (chart.Series["Current"].Points.Count > DateTime.Now.Hour)
-                    //{
-                    //    chart.Series["Current"].Points[DateTime.Now.Hour].SetValueY(current);
-                    //}
-                    //else
-                    //{
-                    //    chart.Series["Current"].Points.AddXY(DateTime.Now.Hour, current);
-                    //}
-
-                    //// Update the chart to move to the next hour
-                    //currentHour++;
-                    //if (currentHour > 23) // Reset after 24 hours
-                    //{
-                    //    currentHour = 0;
-                    //    chart.Series["Current"].Points.Clear();
-                    //}
-            };
+            // Start the timer after the initial update
             timer2.Start();
         }
 
@@ -404,6 +398,12 @@ namespace EcarGUI
             {
                 Core.IsLeft = true;
             }
+
+            if (e.KeyCode == Core.KeyCharging)
+            {
+                Core.IsCharging = charging;
+                charging = !charging;
+            }
         }
 
         private void OnKeyUp(object sender, KeyEventArgs e)
@@ -433,7 +433,8 @@ namespace EcarGUI
 
         private void Sim(object sender, EventArgs e)
         {
-            // TODO formule normale !!!!
+
+            // TODO formule normale !!!! si sa scada la0 consumul
 
             if (speed == 0)
             {
@@ -489,7 +490,7 @@ namespace EcarGUI
                 {
                     deceleration -= 0.005f;
                 }
-
+                currentSpent = 0;
 
             }
             if (Core.IsDown)
@@ -499,7 +500,7 @@ namespace EcarGUI
                     battery += 0.005f;
                     pictureBox3.Visible = true;
                 }
-                speed -= 2;
+                speed -= 4;
             }
             else
             {
@@ -523,6 +524,11 @@ namespace EcarGUI
                     panelLast.BackColor = Color.FromArgb(37, 43, 63);
                 }
             }
+            //if (Core.IsCharging)
+            //{
+                chargingPictureBoxx.Visible = Core.IsCharging;
+                //TODO de facut formula de incarcare
+            //}
             int decimalSpeed = (int)speed;
             speedLabel.Text = decimalSpeed.ToString();
 
@@ -552,7 +558,7 @@ namespace EcarGUI
                     }
                     break;
             }
-
+            
         }
 
         

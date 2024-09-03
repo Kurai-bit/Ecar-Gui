@@ -264,6 +264,16 @@ namespace EcarGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap charging {
+            get {
+                object obj = ResourceManager.GetObject("charging", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HIGH_BEAM {
             get {
                 object obj = ResourceManager.GetObject("HIGH_BEAM", resourceCulture);
