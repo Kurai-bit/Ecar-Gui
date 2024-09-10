@@ -67,7 +67,9 @@
             hoursRemaining = new Label();
             label2 = new Label();
             panel5 = new Panel();
-            pictureBox1 = new PictureBox();
+            batteryWarningPictureBox = new PictureBox();
+            handBrakePictureBox = new PictureBox();
+            lightsPictureBox = new PictureBox();
             panel6 = new Panel();
             D = new Panel();
             LabelD = new Label();
@@ -92,6 +94,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
+            blinksTimer = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel20.SuspendLayout();
@@ -107,7 +110,9 @@
             batteryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chargingPictureBoxx).BeginInit();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)batteryWarningPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)handBrakePictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lightsPictureBox).BeginInit();
             panel6.SuspendLayout();
             D.SuspendLayout();
             S.SuspendLayout();
@@ -288,7 +293,7 @@
             panel15.Controls.Add(label8);
             panel15.Controls.Add(label10);
             panel15.Controls.Add(label9);
-            panel15.Location = new Point(264, 595);
+            panel15.Location = new Point(264, 603);
             panel15.Name = "panel15";
             panel15.Size = new Size(106, 56);
             panel15.TabIndex = 2;
@@ -331,7 +336,7 @@
             panel16.BackColor = Color.FromArgb(37, 43, 75);
             panel16.Controls.Add(label5);
             panel16.Controls.Add(drivenKm);
-            panel16.Location = new Point(376, 595);
+            panel16.Location = new Point(376, 603);
             panel16.Name = "panel16";
             panel16.Size = new Size(106, 56);
             panel16.TabIndex = 2;
@@ -445,7 +450,7 @@
             panel12.Controls.Add(label2);
             panel12.Location = new Point(12, 533);
             panel12.Name = "panel12";
-            panel12.Size = new Size(243, 118);
+            panel12.Size = new Size(243, 126);
             panel12.TabIndex = 1;
             // 
             // pictureBox3
@@ -484,7 +489,7 @@
             chargingPictureBoxx.InitialImage = Properties.Resources.charging;
             chargingPictureBoxx.Location = new Point(97, 0);
             chargingPictureBoxx.Name = "chargingPictureBoxx";
-            chargingPictureBoxx.Size = new Size(50, 47);
+            chargingPictureBoxx.Size = new Size(50, 44);
             chargingPictureBoxx.SizeMode = PictureBoxSizeMode.Zoom;
             chargingPictureBoxx.TabIndex = 0;
             chargingPictureBoxx.TabStop = false;
@@ -505,7 +510,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
             label3.ForeColor = Color.LightGray;
-            label3.Location = new Point(126, 75);
+            label3.Location = new Point(126, 81);
             label3.Name = "label3";
             label3.Size = new Size(27, 40);
             label3.TabIndex = 0;
@@ -515,7 +520,7 @@
             // 
             hoursRemaining.AutoSize = true;
             hoursRemaining.ForeColor = Color.LightGray;
-            hoursRemaining.Location = new Point(159, 90);
+            hoursRemaining.Location = new Point(163, 99);
             hoursRemaining.Name = "hoursRemaining";
             hoursRemaining.Size = new Size(59, 19);
             hoursRemaining.TabIndex = 0;
@@ -525,7 +530,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.LightGray;
-            label2.Location = new Point(5, 90);
+            label2.Location = new Point(6, 98);
             label2.Name = "label2";
             label2.Size = new Size(151, 19);
             label2.TabIndex = 0;
@@ -533,7 +538,9 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(pictureBox1);
+            panel5.Controls.Add(batteryWarningPictureBox);
+            panel5.Controls.Add(handBrakePictureBox);
+            panel5.Controls.Add(lightsPictureBox);
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(carPictureBox1);
             panel5.Controls.Add(speedLabel);
@@ -543,15 +550,35 @@
             panel5.Size = new Size(442, 493);
             panel5.TabIndex = 0;
             // 
-            // pictureBox1
+            // batteryWarningPictureBox
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(319, 187);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(54, 52);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            batteryWarningPictureBox.Image = Properties.Resources.batteryWarning;
+            batteryWarningPictureBox.Location = new Point(66, 247);
+            batteryWarningPictureBox.Name = "batteryWarningPictureBox";
+            batteryWarningPictureBox.Size = new Size(54, 52);
+            batteryWarningPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            batteryWarningPictureBox.TabIndex = 3;
+            batteryWarningPictureBox.TabStop = false;
+            // 
+            // handBrakePictureBox
+            // 
+            handBrakePictureBox.Image = Properties.Resources.handbrake;
+            handBrakePictureBox.Location = new Point(66, 187);
+            handBrakePictureBox.Name = "handBrakePictureBox";
+            handBrakePictureBox.Size = new Size(54, 52);
+            handBrakePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            handBrakePictureBox.TabIndex = 3;
+            handBrakePictureBox.TabStop = false;
+            // 
+            // lightsPictureBox
+            // 
+            lightsPictureBox.Image = (Image)resources.GetObject("lightsPictureBox.Image");
+            lightsPictureBox.Location = new Point(319, 187);
+            lightsPictureBox.Name = "lightsPictureBox";
+            lightsPictureBox.Size = new Size(54, 52);
+            lightsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            lightsPictureBox.TabIndex = 3;
+            lightsPictureBox.TabStop = false;
             // 
             // panel6
             // 
@@ -659,10 +686,10 @@
             // 
             // carPictureBox1
             // 
-            carPictureBox1.Image = (Image)resources.GetObject("carPictureBox1.Image");
+            carPictureBox1.Image = Properties.Resources.autocad_drawing_tesla_model_3_tesla_inc_cars_top_vehicles_dwg_dxf_435_transformed;
             carPictureBox1.Location = new Point(31, 89);
             carPictureBox1.Name = "carPictureBox1";
-            carPictureBox1.Size = new Size(369, 346);
+            carPictureBox1.Size = new Size(378, 346);
             carPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             carPictureBox1.TabIndex = 0;
             carPictureBox1.TabStop = false;
@@ -780,6 +807,12 @@
             timer3.Interval = 80;
             timer3.Tick += Sim;
             // 
+            // blinksTimer
+            // 
+            blinksTimer.Enabled = true;
+            blinksTimer.Interval = 500;
+            blinksTimer.Tick += blinksTimer_Tick;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
@@ -816,7 +849,9 @@
             ((System.ComponentModel.ISupportInitialize)chargingPictureBoxx).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)batteryWarningPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)handBrakePictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lightsPictureBox).EndInit();
             panel6.ResumeLayout(false);
             D.ResumeLayout(false);
             D.PerformLayout();
@@ -864,7 +899,7 @@
         private Label neutralLabel;
         private Panel D;
         private Label LabelD;
-        private PictureBox pictureBox1;
+        private PictureBox lightsPictureBox;
         private Panel panel16;
         private Panel panel14;
         private Panel panel12;
@@ -900,5 +935,8 @@
         private Button button1;
         private Button button2;
         private PictureBox chargingPictureBoxx;
+        private PictureBox batteryWarningPictureBox;
+        private PictureBox handBrakePictureBox;
+        private System.Windows.Forms.Timer blinksTimer;
     }
 }

@@ -264,9 +264,29 @@ namespace EcarGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap batteryWarning {
+            get {
+                object obj = ResourceManager.GetObject("batteryWarning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap charging {
             get {
                 object obj = ResourceManager.GetObject("charging", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap handbrake {
+            get {
+                object obj = ResourceManager.GetObject("handbrake", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -304,6 +324,16 @@ namespace EcarGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap leftBlink {
+            get {
+                object obj = ResourceManager.GetObject("leftBlink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOW_BEAM_1 {
             get {
                 object obj = ResourceManager.GetObject("LOW_BEAM_1", resourceCulture);
@@ -324,9 +354,9 @@ namespace EcarGUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Screenshot_2024_03_22_003258 {
+        internal static System.Drawing.Bitmap rightBlink {
             get {
-                object obj = ResourceManager.GetObject("Screenshot_2024_03_22_003258", resourceCulture);
+                object obj = ResourceManager.GetObject("rightBlink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

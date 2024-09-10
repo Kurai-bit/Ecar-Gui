@@ -14,6 +14,10 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET;
+using EcarGUI.Properties;
+using System.Runtime.CompilerServices;
+using System.Runtime.Intrinsics.Arm;
+using System.Diagnostics;
 
 
 namespace EcarGUI
@@ -22,7 +26,7 @@ namespace EcarGUI
     {
         private int currentHour = 0;
         int weight = 2800;
-        int engineTorque = 0;
+        double engineTorque = 0;
         float voltage = 0;
         float airFriction = 0.0005f;
         float deceleration = 0.15f;
@@ -31,15 +35,47 @@ namespace EcarGUI
         float brake = 0;
 
         // Other variables
-        float speed = 0.0f; // Initial spee
+        double V1 = 0.001; // Initial spee
+        double V2 = 0.0;
         int gear = 2;
 
-        bool charging = false;
         float battery = 180; //240max
-        float currentSpent = 0;
+        double currentSpent = 0;
         int KWh = 0;
         float hoursToDrive = 0;
-        int driven = 30000;
+        int driven = 3985;
+
+
+        bool charging = false;
+        bool handBrake = false;
+        bool blinkRight = false;
+        bool blinkLeft = false;
+        bool isBlinking = false;
+
+
+        int RPM = 0; //3000
+        int Pmotor = 50000; // 50000
+        double a1 = 0;
+        double VKmh = 0;
+
+        double A = 1.50 * 1.80;
+        double m = 500;
+        double rho = 1.181;
+        double g = 9.81;
+
+        double eta = 0.9;
+        double eta2 = 0.65;
+        double Cd = 0.25;
+        double Cr = 0.01;
+        double Fa = 1500; // 3 -> deceleration x 500kg
+        
+
+
+        double Twheels = 0.3;
+        double deltaTime = 0.08;
+
+        double distance = 0;
+
 
 
 
@@ -335,20 +371,24 @@ namespace EcarGUI
             //chartArea.AxisX.Title = "Hour";
             chartArea.AxisY.Title = "Current spent";
 
+            double current = 0;
+
+
             // Initialize the timer
             int minute = 0; // temporar 
             System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
-            timer2.Interval = 10000; // 1 seconds
+            timer2.Interval = 1000; // 1 seconds
             timer2.Tick += (s, args) =>
             {
                 UpdateChart();
                 minute++;
             };
-            float current = 0;
+            
             // Define a method to update the chart
             void UpdateChart()
             {
                 current = currentSpent;
+
 
                 if (chart.Series["Current"].Points.Count > minute)
                 {
@@ -401,8 +441,35 @@ namespace EcarGUI
 
             if (e.KeyCode == Core.KeyCharging)
             {
-                Core.IsCharging = charging;
                 charging = !charging;
+                Core.IsCharging = charging;
+            }
+
+            if (e.KeyCode == Core.KeyLights)
+            {
+                Core.IsLights++;
+                if (Core.IsLights == 3)
+                {
+                    Core.IsLights = 0;
+                }
+            }
+
+            if (e.KeyCode == Core.KeyHandBrake)
+            {
+                handBrake = !handBrake;
+                Core.IsHandBrake = handBrake;
+            }
+
+            if (e.KeyCode == Core.KeyRightBlink)
+            {
+                blinkRight = !blinkRight;
+                Core.IsRightBlink = blinkRight;
+            }
+
+            if (e.KeyCode == Core.KeyLeftBlink)
+            {
+                blinkLeft = !blinkLeft;
+                Core.IsLeftBlink = blinkLeft;
             }
         }
 
@@ -427,33 +494,54 @@ namespace EcarGUI
             }
         }
 
-
-
-
-
+        
         private void Sim(object sender, EventArgs e)
         {
 
-            // TODO formule normale !!!! si sa scada la0 consumul
+            
+            // TODO formule normale !!!!
+            chargingPictureBoxx.Visible = Core.IsCharging;
+            handBrakePictureBox.Visible = Core.IsHandBrake;
 
-            if (speed == 0)
+            if (V2 == 0)
             {
                 airFriction = 0.0005f;
                 deceleration = 0.15f;
             }
 
-            acceleration = 9.82f * engineTorque * airFriction;
-            float force = weight * acceleration;
+            
+            
 
-            //float force = weight * 9.82f * engineTorque * airFriction;
-            //acceleration = force / weight;
+            engineTorque = Pmotor / ((2*Math.PI* RPM)/60);
 
-            //driven += 120 / 3600 * speed; // inmultirea cu 0 da 0 daun!!
+
+            double Ek = 0.5 * m * V1 * V1;
+            double Ex = eta2 * Ek;
+
+            double Pdr = 0.5 * Cd * rho * A * Math.Pow(V1, 3); // aerodynamic drag
+            double Pwh = Cr * m * g * V1;// the rolling resistance
+            double Pm = (Pdr + Pwh) / eta; // total power requirement
+
+            double E1 = Pm * 0.08; // 1 --> t
+
+            double E2 = eta2 * Ex; // energy recovery during braking
+            double percentageEnergyRecovered = (E2 / E1) * 100; // percentage of energy recovered
+            double Pregen = eta2 * (Fa * V1) / 0.08; // power dynamics during regeneration instead of 1 --> t
+
+            double Pacc = Pmotor - Pm; //puterea de acceleratia
+            double Facc = Pacc / V1; //forta de acceleratie
+
+            //acceleration = 9.82f * engineTorque * airFriction;
+            double Fwheels = engineTorque / Twheels; // forta aplicata rotilor
+            double a = Facc/ m; // acceleratia
+            a = Math.Min(a,5); 
+
+
 
             drivenKm.Text = driven.ToString() + "Km";
 
             //baterry
-            voltage = (engineTorque * 204) / 320;
+            voltage = (int)(engineTorque * 204) / 320;
             KWh = (int)(battery * 350) / 240;
             hoursToDrive = ((battery * 350) / 240) / 60;
             float batteryPercentage = (battery * 100) / 240;
@@ -463,50 +551,63 @@ namespace EcarGUI
             batteryCapacity.Text = KWh.ToString() + "Kwh";
             hoursRemaining.Text = Math.Truncate(hoursToDrive * 10) / 10 + "h";
 
-            //mapbox GPS
-            //
+            if (battery <= 240 * 0.1)
+            {
+                batteryWarningPictureBox.Visible = true;
+            }
+            else
+            {
+                batteryWarningPictureBox.Visible = false;
+            }
+
+            Debug.WriteLine("V1 : " + V1);
 
             string[] gears = ["P", "R", "N", "D", "S"];
             if (Core.IsUp)
             {
-                if (battery > 0.1)
+                if (battery > 0.1 && !handBrake)
                 {
-                    speed += acceleration;
-                    airFriction -= 0.000001f;
-                    deceleration += 0.01f;
-                    battery -= (voltage / 60) * 0.005f;
-                    currentSpent += (voltage / 60) * 0.005f;
+                    V2 = V1+a*deltaTime; // acceleration 
+                    V1 = V2;
+                    VKmh = V2*3.6;
+
+                    distance += V2/deltaTime;
+
+                    currentSpent = Pm * deltaTime;
                 }
             }
             else
             {
-                speed -= deceleration;
-                if (airFriction < 0.0005f)
-                {
-                    airFriction += 0.000001f;
 
-                }
-                if (deceleration > 0.15f)
-                {
-                    deceleration -= 0.005f;
-                }
+                V2 = Math.Max(V1 - a * deltaTime, 0); // natural deceleration when not accelerating
+                V1 = V2;
+                VKmh = V2 * 3.6;
+
+                
                 currentSpent = 0;
 
             }
             if (Core.IsDown)
             {
-                if(battery < 240 && speed > 0)
+                if (battery < 240 && V2 > 0 && !handBrake)
                 {
-                    battery += 0.005f;
+                    V2 = Math.Max(V1 - 10 * deltaTime, 0); // deceleration when braking (a = 10)
+                    V1 = V2;
+                    VKmh = V2 * 3.6;
+
                     pictureBox3.Visible = true;
                 }
-                speed -= 4;
             }
             else
             {
                 pictureBox3.Visible = false;
             }
-            speed = Math.Max(0.0f, speed);
+
+            if (handBrake && V2 > 0)
+            {
+                V2 -= 10;
+            }
+            V2 = Math.Max(0.0f, V2);
 
 
             if (Core.IsRight)
@@ -524,12 +625,8 @@ namespace EcarGUI
                     panelLast.BackColor = Color.FromArgb(37, 43, 63);
                 }
             }
-            //if (Core.IsCharging)
-            //{
-                chargingPictureBoxx.Visible = Core.IsCharging;
-                //TODO de facut formula de incarcare
-            //}
-            int decimalSpeed = (int)speed;
+
+            int decimalSpeed = (int)VKmh;
             speedLabel.Text = decimalSpeed.ToString();
 
             Panel panelNow = Controls.Find(gears[gear], true).FirstOrDefault() as Panel;
@@ -538,29 +635,81 @@ namespace EcarGUI
             switch (gear)
             {
                 case 1:
-                    engineTorque = 50;
+                    //engineTorque = 50;
                     break;
                 case 3:
-                    engineTorque = 119;
+                    //engineTorque = 119;
+                    RPM = 3000;
                     break;
                 case 4:
-                    engineTorque = 204;
-                    if (airFriction > 0.0005f)
-                    {
-                        airFriction = 0.0005f;
-                    }
+                    //engineTorque = 204;
+                    //if (airFriction > 0.0005f)
+                    //{
+                    //    airFriction = 0.0005f;
+                    //}
+                    RPM = 1500;
                     break;
                 default:
-                    engineTorque = 0;
-                    if (speed > 0)
-                    {
-                        speed -= 0.5f;
-                    }
+
+                    //engineTorque = 0;
+                    //if (V > 0)
+                    //{
+                    //    V -= 0.5f;
+                    //}
                     break;
             }
-            
+
+            switch (Core.IsLights)
+            {
+                case 1:
+                    lightsPictureBox.Visible = true;
+                    lightsPictureBox.Image = Resources.LOW_BEAM_1;
+                    break;
+                case 2:
+                    lightsPictureBox.Image = Resources.HIGH_BEAM;
+                    break;
+                default:
+                    lightsPictureBox.Visible = false;
+                    break;
+            }
+
+            if (blinkRight)
+            {
+                blinkLeft = false;
+                blinksTimer.Enabled = true;
+                if (isBlinking)
+                {
+                    carPictureBox1.Image = Resources.rightBlink;
+                }
+                else
+                {
+                    carPictureBox1.Image = Resources.autocad_drawing_tesla_model_3_tesla_inc_cars_top_vehicles_dwg_dxf_435_transformed;
+                }
+            }
+            else if (blinkLeft)
+            {
+                blinkRight = false;
+                blinksTimer.Enabled = true;
+                if (!isBlinking)
+                {
+                    carPictureBox1.Image = Resources.leftBlink;
+                }
+                else
+                {
+                    carPictureBox1.Image = Resources.autocad_drawing_tesla_model_3_tesla_inc_cars_top_vehicles_dwg_dxf_435_transformed;
+                }
+            }
+            else
+            {
+                blinksTimer.Enabled = false;
+                carPictureBox1.Image = Resources.autocad_drawing_tesla_model_3_tesla_inc_cars_top_vehicles_dwg_dxf_435_transformed;
+            }
+
         }
 
-        
+        private void blinksTimer_Tick(object sender, EventArgs e)
+        {
+            isBlinking = !isBlinking;
+        }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcarGUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fc8cd887b663e827968ef68cb45cb548850e59f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2775b2395e7658eb8d6f078dab1792cb0798bdb4")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcarGUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcarGUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
